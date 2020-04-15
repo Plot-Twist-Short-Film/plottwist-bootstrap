@@ -19,7 +19,7 @@ try:
     import plottwist.loader
     from maya import cmds
     cmds.evalDeferred('plottwist.loader.init(import_libs=True)')
-    print('| Plto Twist ArtellaPipe | Plot Twist loaded successfully!')
+    print('| Plot Twist ArtellaPipe | Plot Twist loaded successfully!')
     print('=' * 100)
 except Exception as e:
     try:
