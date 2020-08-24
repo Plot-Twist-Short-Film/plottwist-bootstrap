@@ -23,8 +23,20 @@ try:
     print('=' * 100)
 except Exception as e:
     try:
+        dev = False
+
+        # Initialize tpDcc library
+        import tpDcc.loader
+        tpDcc.loader.init(dev=dev)
+
+        # Initialize artellapipe library
+        import artellapipe.loader
+        artellapipe.loader.init(dev=dev)
+
+        # Initialize plottwist project
         import plottwist.loader
-        plottwist.loader.init(import_libs=True)
+        plottwist.loader.init(dev=dev)
+
         print('| Plot Twist Pipeline | Plot Twist loaded successfully!')
         print('=' * 100)
     except Exception as exc:
