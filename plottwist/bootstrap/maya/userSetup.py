@@ -12,16 +12,8 @@ __license__ = "MIT"
 __maintainer__ = "Tomas Poveda"
 __email__ = "tpovedatd@gmail.com"
 
-print('=' * 100)
-print('| Plot Twist ArtellaPipe | > Loading Plot Twist Tools')
 
-try:
-    import plottwist.loader
-    from maya import cmds
-    cmds.evalDeferred('plottwist.loader.init(import_libs=True)')
-    print('| Plot Twist ArtellaPipe | Plot Twist loaded successfully!')
-    print('=' * 100)
-except Exception as e:
+def init():
     try:
         dev = False
 
@@ -43,3 +35,17 @@ except Exception as e:
         import traceback
         print('ERROR: Impossible to load Plot Twist Tools, contact TD!')
         print('{} | {}'.format(exc, traceback.format_exc()))
+
+
+print('=' * 100)
+print('| Plot Twist ArtellaPipe | > Loading Plot Twist Tools')
+
+try:
+    import maya.cmds as cmds
+    cmds.evalDeferred('init()')
+    print('| Plot Twist ArtellaPipe | Plot Twist loaded successfully!')
+    print('=' * 100)
+except Exception as e:
+    init()
+    print('| Plot Twist ArtellaPipe | Plot Twist loaded successfully!')
+    print('=' * 100)
